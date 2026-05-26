@@ -7,58 +7,32 @@ Production-grade Enterprise AI Platform using:
 - Docker
 - Kubernetes
 - Helm
-- Azure DevOps CI/CD
+- GitHub Actions
+- Azure DevOps
+- Docker Hub
+- ArgoCD GitOps
 
 ---
 
-# 🏗️ Architecture
+# 🏗️ Enterprise Cloud-Native Architecture
 
-Browser
-↓
-Kubernetes LoadBalancer Service
-↓
-FastAPI Enterprise AI APIs
-↓
+```text
+Developer Push
+      ↓
+GitHub Repository
+      ↓
+GitHub Actions CI/CD
+      ↓
+Docker Build
+      ↓
+Docker Hub Registry
+      ↓
+ArgoCD GitOps Engine
+      ↓
+Kubernetes Cluster
+      ↓
+LoadBalancer Service
+      ↓
+Enterprise AI APIs
+      ↓
 Azure OpenAI
-
----
-
-# 🚀 Features
-
-✅ Enterprise AI APIs  
-✅ Kubernetes Deployments  
-✅ LoadBalancer Services  
-✅ Helm Infrastructure  
-✅ Autoscaling Support  
-✅ Docker Containerization  
-✅ Azure DevOps CI/CD Pipelines  
-✅ Production-ready AI Platform  
-
----
-
-# 🚀 APIs
-
-## Ask AI
-
-POST `/ask-ai`
-
-## CloudOps Agent
-
-POST `/cloudops-agent`
-
-## Security Agent
-
-POST `/security-agent`
-
-## Analytics Agent
-
-POST `/analytics-agent`
-
----
-
-# 🚀 Local Development
-
-## Create Virtual Environment
-
-```bash
-python -m venv venv

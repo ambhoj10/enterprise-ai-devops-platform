@@ -5,7 +5,7 @@ metadata:
   name: enterprise-ai-api
 
 spec:
-  replicas: 2
+  replicas: 3
 
   selector:
     matchLabels:
@@ -18,10 +18,23 @@ spec:
 
     spec:
       containers:
-      - name: enterprise-ai-api
+        - name: enterprise-ai-api
 
-        image: enterprise-ai-api:latest
+          image: ambhoj10/enterprise-ai-api:v1
 
+          ports:
+            - containerPort: 8000
 
-        ports:
-        - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /docs
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+
+          readinessProbe:
+            httpGet:
+              path: /docs
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5

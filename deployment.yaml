@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: enterprise-ai-api
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: enterprise-ai-api
+
+  template:
+    metadata:
+      labels:
+        app: enterprise-ai-api
+
+    spec:
+      containers:
+      - name: enterprise-ai-api
+
+        image: enterprise-ai-api:latest
+
+
+        ports:
+        - containerPort: 8000

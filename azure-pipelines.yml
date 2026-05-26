@@ -1,0 +1,27 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  imageName: enterprise-ai-api
+
+steps:
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.11'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: Install Python Dependencies
+
+- script: |
+    docker build -t $(imageName) .
+  displayName: Build Docker Image
+
+- script: |
+    echo "Enterprise AI CI/CD Pipeline Executed Successfully"
+  displayName: Pipeline Success
